@@ -3,16 +3,7 @@ import SwiftUI
 
 struct ImagesView: View {
   private let content = """
-    You can display an image by adding `!` and wrapping the alt text in `[ ]`.
-    Then wrap the link for the image in parentheses `()`.
-
-    ```
-    ![This is an image](https://picsum.photos/id/91/400/300)
-    ```
-
-    ![This is an image](https://picsum.photos/id/91/400/300)
-
-    ― Photo by Jennifer Trovato
+    ### Line R2 Nord\n\nAirport T2 → Clot d'Aragó\n\n### 💶 Buy a ticket\n**Price**: 4,60€\n\n### ⏰ Work hours\n05:42 AM - 11:38 PM \n\n### ✋ Good to know\n\nThe train station at Barcelona Airport is conveniently located 200m outside terminal building 2.\n\nChildren under 4 years old travel for free.\n\nOnly the R2 Nord offers a straight connection to the city.\n\n![Map BCN](https://byair-prod-bucket.fra1.cdn.digitaloceanspaces.com/ExtendedTransportDescriptionImages/BCN/BCN-Rodalies-R2-Nord-MOB-TABLET.png)\n\n![Logo](https://byair-prod-bucket.fra1.cdn.digitaloceanspaces.com/ExtendedTransportDescriptionImages/BCN/R2N_barcelona.svg.png)\n
     """
 
   private let inlineImageContent = """
@@ -35,6 +26,9 @@ struct ImagesView: View {
   var body: some View {
     DemoView {
       Markdown(self.content)
+            .markdownImageTapAction { url in
+                print(url)
+            }
 
       Section("Inline images") {
         Markdown(self.inlineImageContent)
